@@ -3,6 +3,8 @@ package com.hms.learn.service;
 import com.hms.learn.domain.BookEntity;
 import com.hms.learn.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import javax.persistence.RollbackException;
 import java.util.List;
 
 @Service
+@CacheConfig(cacheNames = "book_cache")
 public class BookService {
 
     private final BookRepository bookRepository;
@@ -27,10 +30,12 @@ public class BookService {
         return bookRepository.saveAndFlush(bookEntity);
     }
 
+    @Cacheable
     public Page<BookEntity> getBookByPage(Pageable pageable) {
         return bookRepository.findAll(pageable);
     }
 
+    @Cacheable
     public List<BookEntity> getBookEntitiesByAuthorStartingWith(String author) {
         return bookRepository.getBookEntitiesByAuthorStartingWith(author);
     }

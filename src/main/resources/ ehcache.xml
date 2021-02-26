@@ -16,13 +16,13 @@
         <persistence strategy="localTempSwap"/>
     </defaultCache>
     <!--    配置一个缓存-->
-    <cache
-            maxElementsInMemory="10000"
-            eternal="true"
-            timeToIdleSeconds="120"
-            timeToLiveSeconds="120"
-            overflowToDisk="true"
-            diskPersistent="true"
-            diskExpiryThreadIntervalSeconds="120"
+    <cache name="book_cache"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="120"
+           timeToLiveSeconds="120"
+           overflowToDisk="true"
+           diskPersistent="true"
+           diskExpiryThreadIntervalSeconds="120"
     />
 </ehcache>
