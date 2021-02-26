@@ -23,6 +23,10 @@ repositories {
 }
 
 dependencies {
+    //  json
+    implementation 'com.alibaba:fastjson:1.2.49'
+    //  alibaba druid
+    implementation 'com.alibaba:druid:1.1.9'
     //  Ehcache 2.x缓存
     implementation 'net.sf.ehcache:ehcache'
 //    implementation 'org.springframework.boot:spring-boot-starter-activemq'

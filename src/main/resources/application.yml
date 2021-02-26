@@ -1,1 +1,22 @@
-
+spring:
+  devtools:
+    add-properties: true
+    restart:
+      enabled: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:10086/sp_demo
+    username: root
+    password: tai.juan1017
+  jpa:
+    open-in-view: false
+    show-sql: true
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+server:
+  port: 8080
+logging:
+  level:
+    web: debug
