@@ -43,7 +43,7 @@ dependencies {
 //    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 //    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 //    implementation 'org.springframework.boot:spring-boot-starter-quartz'
-//    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 //    implementation 'org.springframework.boot:spring-boot-starter-websocket'
 //    implementation 'org.springframework.integration:spring-integration-amqp'
@@ -54,7 +54,7 @@ dependencies {
 //    implementation 'org.springframework.integration:spring-integration-mail'
 //    implementation 'org.springframework.integration:spring-integration-mongodb'
 //    implementation 'org.springframework.integration:spring-integration-redis'
-//    implementation 'org.springframework.integration:spring-integration-security'
+    implementation 'org.springframework.integration:spring-integration-security'
 //    implementation 'org.springframework.integration:spring-integration-stomp'
 //    implementation 'org.springframework.integration:spring-integration-websocket'
     compileOnly 'org.projectlombok:lombok'
@@ -65,7 +65,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 //    testImplementation 'org.springframework.amqp:spring-rabbit-test'
     testImplementation 'org.springframework.integration:spring-integration-test'
-//    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.springframework.security:spring-security-test'
 }
 
 test {
