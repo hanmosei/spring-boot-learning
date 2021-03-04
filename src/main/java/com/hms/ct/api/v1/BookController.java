@@ -51,6 +51,44 @@ public class BookController {
         return ResponseEntity.ok(json);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> selectBook(@PathVariable String id) {
+        BookEntity result = bookService.getBookEntityById(id);
+        JSONObject json = new JSONObject();
+        if (result != null) {
+            log.info("【BookController】selectBook result: {}", result);
+            json.put("code", 200);
+            json.put("message", "OK");
+            json.put("data", result);
+        } else {
+            json.put("code", 104);
+            json.put("message", "The book is not found");
+        }
+        return ResponseEntity.ok(json);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<Object> updateBook(@RequestBody BookEntity request) {
+        BookEntity result = bookService.getBookEntityById(request.getId());
+        JSONObject json = new JSONObject();
+        if (result != null) {
+            log.info("【BookController】updateBook result: {}", result);
+            request.setCreateTime(result.getCreateTime());
+            BookEntity updateResult = bookService.updateBookById(request);
+            if(updateResult != null) {
+                json.put("code", 200);
+                json.put("message", "OK");
+            } else {
+                json.put("code", 201);
+                json.put("message", "Failure");
+            }
+        } else {
+            json.put("code", 104);
+            json.put("message", "The book is not found");
+        }
+        return ResponseEntity.ok(json);
+    }
+
     @GetMapping("/all")
     public ResponseEntity<Object> findAll(@RequestParam(defaultValue = "0") int page,
                                           @RequestParam(defaultValue = "10") int size) {

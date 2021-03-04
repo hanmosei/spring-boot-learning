@@ -9,6 +9,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -22,7 +23,7 @@ import java.util.Date;
 @Table(name = "t_book")
 @EntityListeners(AuditingEntityListener.class)
 @GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
-public class BookEntity {
+public class BookEntity implements Serializable {
 
     @Id
     @GeneratedValue(generator = "uuid", strategy = GenerationType.AUTO)
