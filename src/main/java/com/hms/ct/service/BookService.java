@@ -40,6 +40,7 @@ public class BookService {
     }
 
     @CachePut(key = "#p0.id")
+    @CacheEvict(key = "getTargetClass()", allEntries = true)
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = RollbackException.class)
     public BookEntity updateBookById(BookEntity bookEntity) {
         return bookRepository.saveAndFlush(bookEntity);
