@@ -1,10 +1,10 @@
-package com.hms.learn;
+package com.hms.ct;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplicationTests {
+class SpringBootLearningApplicationTests {
 
     @Test
     void contextLoads() {
